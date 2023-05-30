@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ru-Ru">
+{% load static %}
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="{% static 'images/droplet-half.svg' %}" type="svg">
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>Бурение скважин на воду, оставляйте заявку на сайте bureniewater.com.</title>
+    <meta name="description" content="На сайте вы можете оставить заявку, на бурение скважины. На первый водоносный горизонт, в песках.
+    На сайте представлена информация по проведению работ. Переходите, оставляйте заявку."/>
+    <meta name="yandex" content="noyaca"/>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+              <a class="navbar-brand" href="#form">Заявка на скважину на воду</a>
+            </div>
+          </nav>
+    </header>
+    <main>
+        <div class="contanier-main">
+            <h1 class="main-text">Бурение скважин под воду на первый водоносный горизонт</h1>
+            <p class="text_480px">{{ text_file }}</p>
+            <p class="text_file"><pre class="text_file">{{ text_file }}</pre></p>
+        </div>
+        <div class="contanier-form" id="form">
+            <form method="post" class="email_message">
+                {% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="mb-3">
+                    <div class="small-6 columns">
+                        <p>Ваш email *</p>
+                        <p class="from_email">{{ form.from_email}}</p>
+                    </div>
+                    <div class="small-6 columns">
+                        <p>Тема *</p>
+                        <p class="subject">{{ form.subject }}</p>
+                    </div>
+                    <div class="small-6 columns">
+                        <p>Заявка *</p>
+                        <p class="message"> {{ form.message }}</p>
+                    </div>
+                    <div>
+                        <button class="btn btn-success">Отправить</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

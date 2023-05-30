@@ -1,0 +1,92 @@
+@media screen and (max-width: 480px) {
+    .message textarea {
+        font-size: 70%;
+        width: 127%;
+    }
+    .text_file {
+        display: none;
+    }
+    .text_480px {
+        font-family: 'Raleway';
+    }
+    .subject input{
+        width: 127%;
+    }
+    .from_email input{
+        width: 127%;
+    }
+}
+@media screen and (min-width: 1480px) {
+    .message textarea {
+        width: 412%;
+    }
+    .subject input{
+        width: 206%;
+    }
+    .from_email input{
+        width: 206%;
+    }
+    .text_480px {
+        display: none;
+    }
+}
+@media screen and (min-width: 1280px) and (max-width: 1480px) {
+    .message textarea {
+        width: 345%;
+    }
+    .subject input{
+        width: 172.5%;
+    }
+    .from_email input{
+        width: 172.5%;
+    }
+    .text_480px {
+        display: none;
+    }
+    
+}
+@media screen and (min-width: 1000px) and (max-width: 1280px) {
+    .message textarea {
+        width: 260%;
+    }
+    .subject input{
+        width: 130%;
+    }
+    .from_email input{
+        width: 130%;
+    }
+    .text_file {
+        display: none;
+    }
+    .text_480px {
+        font-family: 'Raleway';
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 1000px) {
+    .message textarea {
+        width: 188%;
+    }
+    .subject input{
+        width: 94%;
+    }
+    .from_email input{
+        width: 94%;
+    }
+    .text_480px {
+        font-style: normal;
+    }
+    .text_file {
+        display: none;
+    }
+    .text_480px {
+        font-family: 'Raleway';
+    }
+}
+@media screen and (min-width: 480px) and (max-width: 768px) {
+    .text_file {
+        display: none;
+    }
+    .text_480px {
+        font-family: 'Raleway';
+    }
+}

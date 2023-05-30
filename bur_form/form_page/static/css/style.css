@@ -1,0 +1,66 @@
+@import url('fonts.css');
+@import url('style_mobile.css');
+
+
+::-webkit-scrollbar {
+    display:none;
+    width: 0;
+  }
+body {
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+    overflow-y: scroll;
+}
+header {
+    border: 0 solid transparent;
+    border-width: 0 40px;
+    background-color: rgba(159, 190, 192, 0.3);
+    border-radius: 5px;
+}
+main {
+    width: 100%;
+    border: 0 solid transparent;
+    border-width: 0 40px;
+    margin: 0 auto 20px;
+    box-sizing: border-box;
+}
+.contanier-main {
+    width: 100%;
+    border: 0 solid transparent;
+    border-width: 0 40px;
+    margin: 0 auto 20px;
+    box-sizing: border-box;
+    margin: auto;
+}
+.navbar-brand {
+    margin-left: 18px;
+    -webkit-text-fill-color: rgb(0, 0, 0);
+}
+
+.text_file {
+    font-family: 'Raleway';
+    font-weight: 500;
+    margin-left: 12px;
+    margin-bottom: 20px;
+}
+.main-text {
+    text-align: center;
+    font-size: larger;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+.contanier-form{
+    background-color: rgb(159, 190, 192, 0.3);
+    display: flex;
+    border-radius: 10px;
+}
+.mb-3 {
+    margin-top: 20px;
+    margin-left: 50px;
+}
+body{
+    background-image: url('../images/water.jpg');
+}
+.message textarea, .subject input, .from_email input {
+    border-radius: 7px;
+}
