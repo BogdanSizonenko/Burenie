@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 from dotenv import load_dotenv
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -22,12 +23,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY =  os.getenv("SECRET_KEY")
+SECRET_KEY =  os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.getenv("DEBUG")) 
 
-ALLOWED_HOSTS = ['80.90.187.183', 'waterburenie.ru']
+ALLOWED_HOSTS = ['localhost', '.waterburenie.ru']
 
 
 
@@ -115,22 +116,23 @@ USE_I18N = True
 
 USE_TZ = True
 
-RECIPIENTS_EMAIL = ['bogdansizon@yandex.ru']   # замените на свою почту
-DEFAULT_FROM_EMAIL = 'bogdansizon@yandex.ru'  # замените на свою почту
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = os.getenv('EMAIL_HOST')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_USE_TLS = int(os.getenv('EMAIL_USE_TLS', default=1))
+RECIPIENTS_EMAIL = "bogdansizon@yandex.ru"
 
-EMAIL_HOST = 'connect.smtp.bz'
-EMAIL_HOST_USER = 'apikey'
-EMAIL_HOST_PASSWORD = '8o9XyZXaGSPwgGHHyM2NIOA3jaInewibLgZa'
-EMAIL_PORT = 587
-EMAIL_USE_TLS = True
-EMAIL_USE_SSL = False
-EMAIL_PORT = 2525
+EMAIL_SERVER = EMAIL_HOST_USER
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+EMAIL_ADMIN = EMAIL_HOST_USER
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATIC_URL = 'static/'
-STATIC_ROOT = 'static'
+STATIC_ROOT = "form_page/static/"
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field

@@ -5,11 +5,18 @@ services:
     image: bogdars/burenie:work
     container_name: burenie
     volumes:
-      - static_volume:/bur_form/static
+      - static_volume://form_page/static
+    command: sh -c "python3 manage.py collectstatic --no-input &&
+                    python3 manage.py makemigrations &&
+                    python3 manage.py migrate &&
+                    gunicorn bur_form.wsgi -b 0.0.0.0:8000"
     env_file:
       - .env
-    command: >
-      sh -c "gunicorn -b 0.0.0.0:8000 bur_form.wsgi:application"
+    expose:
+      - 8000
+    ports:
+      - 8000:8000
+    restart: "on-failure"
 
   nginx:
     build: 
@@ -18,11 +25,13 @@ services:
     container_name: burenie_nginx
     image: burenie_nginx
     volumes:
-      - static_volume://bur_form/static
+      - static_volume://form_page/static
     depends_on:
       - burenie
+    expose:
+     - 80
     ports:
-      - "${NGINX_EXTERNAL_PORT}:80"
+      - "80:80"
 
 volumes:
   static_volume:

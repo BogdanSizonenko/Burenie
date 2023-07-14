@@ -1,21 +1,10 @@
 FROM python:3.10-alpine
 
-SHELL ["/bin/sh", "-c"]
-
-ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
+ENV PYTHONDONTWRITEBYTECODE 1
 
-RUN pip install --upgrade pip
-
-RUN chmod 777 /opt /run
+ADD . /bur_form
 
 WORKDIR /bur_form
 
-RUN mkdir /bur_form/static
-
-COPY . .
-
-COPY requirements.txt /bur_form
 RUN pip install -r requirements.txt
-
-CMD ["gunicorn", "-b", "0.0.0.0:8001", "bur_form.wsgi:application"]
